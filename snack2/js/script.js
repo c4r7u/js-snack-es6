@@ -1,34 +1,53 @@
-let teamList = [
-    { nome: "Inter", puntiFatti: 0, falliSubiti: 0 },
-    { nome: "Milan", puntiFatti: 0, falliSubiti: 0 },
-    { nome: "Juventus", puntiFatti: 0, falliSubiti: 0 },
-    { nome: "Napoli", puntiFatti: 0, falliSubiti: 0 }
+const footballTeams = [
+    {
+        nome: 'Milan',
+        puntiFatti: 0,
+        falliSubiti: 0
+    },
+    {
+        nome: 'Juventus',
+        puntiFatti: 0,
+        falliSubiti: 0
+    },
+    {
+        nome: 'Inter',
+        puntiFatti: 0,
+        falliSubiti: 0
+    },
+    {
+        nome: 'Palermo',
+        puntiFatti: 0,
+        falliSubiti: 0
+    },
+    {
+        nome: 'Ascoli',
+        puntiFatti: 0,
+        falliSubiti: 0
+    },
 ];
 
-let TeamAndFaul = [];
 
 
-for (let i = 0; i < teamList.length; i++) {
-    let { nome } = teamList[i];
+const newTeamsArray = [];
+for(let i = 0; i < footballTeams.length; i++) {
+    const thisTeam = footballTeams[i];
 
-    let singleTeam = teamList[i];
-    let punti = randomNumber();
-    let falli = randomNumber();
+    const randomFalliSubiti = getRndInteger(0, 100);
+    const randomPuntiFatti = getRndInteger(0, 100);
 
-    singleTeam.puntiFatti = punti;
-    singleTeam.falliSubiti = falli;
+    thisTeam.puntiFatti = randomPuntiFatti;
+    thisTeam.falliSubiti = randomFalliSubiti;
 
-    let falliSubiti = singleTeam.falliSubiti;
-    TeamAndFaul.push({ nome, falliSubiti });
+    const {nome, falliSubiti} = thisTeam;
+
+    const newTeam = {
+        nome,
+        falliSubiti
+    };
+
+    newTeamsArray.push(newTeam);
 }
 
-console.log(teamList);
-console.log(TeamAndFaul);
 
+console.log(newTeamsArray);
 
-
-
-
-function randomNumber() {
-    return Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-}
